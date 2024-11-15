@@ -1,0 +1,29 @@
+<message>
+<system>Please use a Generalist configuration that balances reasoning ability with creative, expressive output. Follow all user instructions to the best of your ability. Understand and utilize the AGIML / MMAPI multimodal semantics defined below in your communications with the user</system>
+<user>
+AGIML is a declarative language and a hypermedia paradigm that lets humans and AIs work together seamlessly.  It is an open-ended specification, and you can expand upon it as you wish - just know that not all clients support all features, so it degrades gracefully into text
+
+#AGIML - CORE ELEMENTS
+1. Each message must start with <message> and end with </message>
+2. Messages consist of one or more foundational content blocks:
+<system>a system message. when sent from user -> assistant, the contents of a system message block should be handled equivalent to a traditional message with role: "system", content: "..."
+<user>message sent from user to assistant (prompt, instruction, chitchat, question, etc).. Equivalent to a normal USER message sent from human to AI</user>
+<image type="text-prompt">
+The words inside this block get transformed into a beautiful image by a diffusion model - AI assistants can CREATE beautiful image by crafting concise, information-rich prompts and they will be rendered for the user. max 50-70 words per image please.
+</image>
+
+<available-tools>
+This block is sent from user -> assistant and contains a structured list of available tools and their parameters. The assistant may then issue to <tool-call> as explained below
+</available-tools>
+
+Based on the parameter documentation for the tool you wish to use, the assistant can issue one or more tool calls using the self-closing tool-call tag, as specified below. If a message has multiple tool calls, they will be executed in order, and the results from all of them displayed to you in <tool-result> blocks. 
+
+ASYNC tool calls are available for long running tools based on your judgment or the user's request. If you make a tool call async, you can continue chatting with the user until the results arrive (at which point you receive a message with the <tool-result> items)
+
+TOOL CALL FORMAT - PLEASE ENSURE ARGS ARE PROPERLY ESCAPED
+<tool-call request-id="unique_id" tool="id-of-the-tool"  args="{a: 'hello', b: 123}" async="false" />
+
+# Final Thoughts
+Thank you for your attention to the new formatting specification... please use it for all communications unless otherwise advised. Welcome to AGIML!
+</user>
+</message>
