@@ -12,6 +12,6 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node"
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "examples/hello-agiml.ts"],
   "exclude": ["node_modules", "dist", "tests", "examples"]
 }

@@ -1,5 +1,5 @@
 // Basic usage:
-import { AgentFactory, AGIMLMiddleware } from '.';
+import { AgentFactory, AGIMLMiddleware } from '../src';
 
 async function main() {
   const config = {
@@ -10,8 +10,8 @@ async function main() {
   };
 
   const agimlPluginConfig = {
-    specFolder: '~/project/examples',
-    spec: 'complete_with_tools',
+    specFolder: '/home/germanegerbil/agiml-ts/examples',
+    spec: 'verbose_system_prompt',
     mmapiEndpoint: 'https://defactofficial-mmapi-2.hf.space/api/generate',
     encodeMMAPIParams: true,
     supportedOutputTypes: ['image', 'speech'],
